@@ -3,8 +3,8 @@ from odoo import models,fields,api
 class FleetCategory(models.Model):
     _inherit='fleet.vehicle.model.category'
 
-    max_weight=fields.Integer(string='Max weight(kg)')
-    max_volume=fields.Integer(string='Max Volume(m\u00b3)')
+    max_weight=fields.Float(string='Max weight(kg)')
+    max_volume=fields.Float(string='Max Volume(m\u00b3)')
     
     def _compute_display_name(self):
         for record in self:
