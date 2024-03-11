@@ -8,5 +8,4 @@ class FleetCategory(models.Model):
     
     def _compute_display_name(self):
         for record in self:
-            res = "%s (%skg, %sm\u00b3)" % (record.name, record.max_weight, record.max_volume)
-            record.display_name=res
+            record.display_name= "%s (%skg, %sm\u00b3)" % (record.name, record.max_weight, record.max_volume)
