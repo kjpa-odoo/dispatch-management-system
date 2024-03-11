@@ -46,8 +46,6 @@
             <graph type="bar">
                 <field name="scheduled_date" type='row' interval='day'/>
                 <field name="vehicle_category_id" type='col'/>
-                <field name="tot_weight" type='measure'/>
-                <field name="tot_volume" type='measure'/>
                 <field name="transfer_count" type="measure"/>
             </graph>
         </field>
@@ -64,8 +62,7 @@
                 <field name="tot_weight"/>
                 <field name="tot_volume"/>
                 <templates>
-                    <t t-out='tot_weight'/>
-                    <div t-name="gantt" class="container-fluid">
+                    <div t-name="gantt.popover" class="container-fluid">
                         <div class="row g-0">
                             <div class="col">
                                 <strong>
