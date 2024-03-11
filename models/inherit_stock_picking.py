@@ -10,7 +10,7 @@ class StockPicking(models.Model):
     def _compute_weight(self):
         for record in self:
             dummy = 0
-            for m in record.move_line_ids:
+            for m in record.move_ids:
                 dummy += m.product_id.weight * m.quantity
             record.weight = dummy
     
@@ -18,6 +18,6 @@ class StockPicking(models.Model):
     def _compute_volume(self):
         for record in self:
             dummy = 0
-            for m in record.move_line_ids:
+            for m in record.move_ids:
                 dummy += m.product_id.volume * m.quantity
             record.volume = dummy

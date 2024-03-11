@@ -12,16 +12,16 @@ class BatchTransfer(models.Model):
         placeholder="e.g. Semi-Truck",
     )
     tot_weight = fields.Float(
-        string="Weight", compute="_compute_total_weight", store=True
+        string="Tot_Weight", compute="_compute_total_weight", store=True
     )
     tot_volume = fields.Float(
-        string="Volume", compute="_compute_total_volume", store=True
+        string="Tot_Volume", compute="_compute_total_volume", store=True
     )
     weight_progressbar = fields.Float(
-        string="Weight", compute="_compute_weight_ref", store=True
+        string="Weight", compute="_compute_weight_ref"
     )
     volume_progressbar = fields.Float(
-        string="volume", compute="_compute_volume_ref", store=True
+        string="volume", compute="_compute_volume_ref"
     )
     transfer_count = fields.Integer(
         string="Transfers", compute="_compute_tranfer_count", store=True
@@ -45,7 +45,6 @@ class BatchTransfer(models.Model):
 
     @api.depends("vehicle_category_id", "picking_ids.weight")
     def _compute_total_weight(self):
-        print("i'm changed")
         for record in self:
             tot = 0
             for p in record.picking_ids:

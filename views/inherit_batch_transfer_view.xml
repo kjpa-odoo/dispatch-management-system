@@ -56,13 +56,13 @@
         <field name="model">stock.picking.batch</field>
         <field name="type">gantt</field>
         <field name="arch" type="xml">
-            <gantt date_start="scheduled_date" date_stop="scheduled_date" string="Transport Operations" default_group_by='dock_id,vehicle_id' default_scale="week" thumbnails="{'vehicle_id': 'image_128'}" color="vehicle_id" decoration-info="state == 'draft'" decoration-success="state == 'done'">
+            <gantt date_start="create_date" date_stop="scheduled_date" string="Transport Operations" default_group_by='dock_id,vehicle_id' default_scale="week" thumbnails="{'vehicle_id': 'image_128'}" color="vehicle_id" decoration-info="state == 'draft'" decoration-success="state == 'done'">
                 <field name="state"/>
                 <field name="name"/>
                 <field name="tot_weight"/>
                 <field name="tot_volume"/>
                 <templates>
-                    <div t-name="gantt.popover" class="container-fluid">
+                    <div t-name="gantt-popover" class="container-fluid">
                         <div class="row g-0">
                             <div class="col">
                                 <strong>
